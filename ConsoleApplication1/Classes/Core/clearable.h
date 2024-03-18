@@ -1,14 +1,17 @@
 ﻿#pragma once
+#include <string>
 
 class Player;
 
 class clearable
 {
-
+protected:
+    std::string* exploreMessage;
+    std::string* clearMessage;
 public:
     void (clearable::*clearDelegate)(Player*,int&);
     
-    clearable();
+    clearable(std::string* exploreMessage,std::string* clearMessage);
 
     virtual ~clearable();
     

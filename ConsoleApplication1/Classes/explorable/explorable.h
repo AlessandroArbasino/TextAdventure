@@ -8,10 +8,6 @@ class explorable : public clearable
 {
     int roomArraySize;
     basic_room** explorableRooms;
-
-    std::string* exploreMessage;
-    std::string* clearMessage;
-    
 public:
     
     explorable(basic_room** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage);

@@ -10,8 +10,6 @@ class adventure : public clearable
 {
     explorable** adventureSteps;
     int numSteps;
-    std::string* beginAdventureString;
-    std::string* endAdventureString;
 public:
     
     adventure();

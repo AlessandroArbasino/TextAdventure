@@ -6,12 +6,12 @@
 #include "dungeons/rooms/basicRoom.h"
 #include "../Core/helpers.h"
 
-explorable::explorable(basic_room** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : roomArraySize(roomArraySize),
-    explorableRooms{explorableRooms},exploreMessage(exploreMessage),clearMessage(clearMessage)
+explorable::explorable(basic_room** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : clearable(exploreMessage,clearMessage),
+    roomArraySize(roomArraySize),explorableRooms{explorableRooms}
 {
 }
 
-explorable::explorable(const explorable& other)
+explorable::explorable(const explorable& other) : clearable(nullptr,nullptr)
 {
 }
 

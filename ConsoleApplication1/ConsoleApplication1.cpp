@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
         int dungeonProgress=0;
         currentAdventure->explore(player,dungeonProgress);
     }
-    catch (const PlayerDeathException&)
+    catch (const PlayerDeathException& playerDeathException)
     {
         //current adventure presa come reference dal player death cosi chiama lui il delete ?
         delete currentAdventure;

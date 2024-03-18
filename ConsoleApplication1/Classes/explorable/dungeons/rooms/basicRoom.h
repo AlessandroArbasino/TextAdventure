@@ -8,8 +8,6 @@ class Player;
 class basic_room : public clearable
 {
 
-    std::string* exploreMessage;
-    std::string* clearMessage;
 public:
 
     basic_room(std::string* exploreMessage,std::string* clearMessage);
