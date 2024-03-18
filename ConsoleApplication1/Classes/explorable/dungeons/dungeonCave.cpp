@@ -1,7 +1,7 @@
 ﻿#include "dungeonCave.h"
 
 
-dungeonCave::dungeonCave(basicRoom** roomArray, int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : explorable(roomArray,roomArraySize,exploreMessage,clearMessage)
+dungeonCave::dungeonCave(basic_room** roomArray, int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : explorable(roomArray,roomArraySize,exploreMessage,clearMessage)
 {
 }
 

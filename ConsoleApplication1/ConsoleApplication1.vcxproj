@@ -157,6 +157,7 @@
     <ClCompile Include="Classes\adventure.cpp" />
     <ClCompile Include="Classes\baseLoot\coinBag.cpp" />
     <ClCompile Include="Classes\baseLoot\lootBase.cpp" />
+    <ClCompile Include="Classes\Core\PlayerDeathException.cpp" />
     <ClCompile Include="Classes\Enemies\dragon.cpp" />
     <ClCompile Include="Classes\Enemies\goblin.cpp" />
     <ClCompile Include="Classes\explorable\dungeons\dungeonCave.cpp" />
@@ -703,6 +704,7 @@
     <ClInclude Include="Classes\baseLoot\lootBase.h" />
     <ClInclude Include="Classes\Core\damageble.h" />
     <ClInclude Include="Classes\Core\helpers.h" />
+    <ClInclude Include="Classes\Core\PlayerDeathException.h" />
     <ClInclude Include="Classes\Enemies\dragon.h" />
     <ClInclude Include="Classes\Enemies\enemyBase.h" />
     <ClInclude Include="Classes\Enemies\goblin.h" />

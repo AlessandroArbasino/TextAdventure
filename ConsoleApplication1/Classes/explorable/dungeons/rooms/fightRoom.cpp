@@ -2,7 +2,7 @@
 #include "../../../Enemies/enemyBase.h"
 #include "../../../Core/helpers.h"
 
-fightRoom::fightRoom(enemyBase* roomEnemy,std::string* exploreMessage,std::string* clearMessage) : basicRoom(exploreMessage, clearMessage), roomEnemy(roomEnemy)
+fightRoom::fightRoom(enemyBase* roomEnemy,std::string* exploreMessage,std::string* clearMessage) : basic_room(exploreMessage, clearMessage), roomEnemy(roomEnemy)
 {
 }
 
@@ -19,7 +19,7 @@ void fightRoom::exploreRoom(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basicRoom::exploreRoom(player, currentProgression);
+    basic_room::exploreRoom(player, currentProgression);
 
     if(Helpers::PrintChoice())
     {
@@ -31,6 +31,6 @@ void fightRoom::clearRoom(Player* player,int& currentProgression)
 {
     if(!player) return;
         
-    basicRoom::clearRoom(player, currentProgression);
+    basic_room::clearRoom(player, currentProgression);
     clearDelegate(player,++currentProgression);
 }

@@ -3,7 +3,7 @@
 
 class lootBase;
 
-class lootRoom : public basicRoom
+class lootRoom : public basic_room
 {
     lootBase* roomLoot;
 public:

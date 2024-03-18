@@ -3,7 +3,7 @@
 
 class enemyBase;
 
-class fightRoom : public  basicRoom
+class fightRoom : public  basic_room
 {
     enemyBase* roomEnemy;
 public:

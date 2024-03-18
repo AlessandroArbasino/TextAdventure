@@ -13,7 +13,7 @@
 
 adventure::adventure()
 {
-    basicRoom** firstDungeonRooms= new basicRoom*[]
+    basic_room** firstDungeonRooms= new basic_room*[]
     {
         new entryRoom(new std::string("You just entered  the cave"),new std::string("Quite silent room nothing interesting")),
         new fightRoom(new goblin(new float(10)),new std::string("Someone lives here keep your eyes on"),new std::string("Ok i defeated that terrible goblin, lets move on")),
@@ -26,7 +26,7 @@ adventure::adventure()
         new std::string("Oh well my adventure begun and i reach the first cave"),
         new std::string("lets move on"));
 
-    basicRoom** secondDungeonRooms= new basicRoom*[]
+    basic_room** secondDungeonRooms= new basic_room*[]
     {
         new entryRoom(new std::string("Oh.... another cave hoping for something easier"),new std::string("Another silent room nothing interesting")),
         new fightRoom(new goblin(new float(10)),new std::string("Another goblin maybe"),new std::string("it was definitely another goblin")),

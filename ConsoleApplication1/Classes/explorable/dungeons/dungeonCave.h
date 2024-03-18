@@ -1,12 +1,12 @@
 ﻿#pragma once
 #include "../explorable.h"
 
-class basicRoom;
+class basic_room;
 
 class dungeonCave : public explorable
 {
 public:
-    dungeonCave(basicRoom** roomArray,int roomArraySize,std::string* exploreMessage,std::string* clearMessage);
+    dungeonCave(basic_room** roomArray,int roomArraySize,std::string* exploreMessage,std::string* clearMessage);
 
     dungeonCave(const dungeonCave& other);
 

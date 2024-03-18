@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "basicRoom.h"
 
-class entryRoom : public basicRoom
+class entryRoom : public basic_room
 {
 
 public:

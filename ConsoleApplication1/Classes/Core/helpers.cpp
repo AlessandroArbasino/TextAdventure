@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "PlayerDeathException.h"
 #include "../player.h"
 
 Player* Helpers::CreatePlayer()
@@ -29,6 +30,8 @@ void Helpers::PrintLoseDeletePlayerRef(Player* player)
     std::cout << "Player "<< player->getName()<<" your journey is over \n";
     delete player;
     player=nullptr;
+
+    throw PlayerDeathException() ;
 }
 
 void Helpers::PrintWinDeletePlayerRef(Player* player)

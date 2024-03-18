@@ -3,7 +3,7 @@
 
 class Player;
 
-class basicRoom
+class basic_room
 {
 
     std::string* exploreMessage;
@@ -11,11 +11,11 @@ class basicRoom
 public:
     void (*clearDelegate)(Player*,int&);
 
-    basicRoom(std::string* exploreMessage,std::string* clearMessage);
+    basic_room(std::string* exploreMessage,std::string* clearMessage);
 
-    basicRoom(const basicRoom& other);
+    basic_room(const basic_room& other);
 
-    virtual ~basicRoom();
+    virtual ~basic_room();
 
     //must implement this method
     virtual void exploreRoom(Player* player,int& currentProgression);

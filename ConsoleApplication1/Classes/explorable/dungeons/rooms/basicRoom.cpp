@@ -2,16 +2,16 @@
 
 #include <iostream>
 
-basicRoom::basicRoom(std::string* exploreMessage, std::string* clearMessage) : exploreMessage(exploreMessage), clearMessage(clearMessage)
+basic_room::basic_room(std::string* exploreMessage, std::string* clearMessage) : exploreMessage(exploreMessage), clearMessage(clearMessage)
 {
     
 }
 
-basicRoom::basicRoom(const basicRoom& other)
+basic_room::basic_room(const basic_room& other)
 {
 }
 
-basicRoom::~basicRoom()
+basic_room::~basic_room()
 {
     //chiedere come chimare il distruttore padre qunado la tratto come classe base per distruggere parametri non della classe base 
     
@@ -22,12 +22,12 @@ basicRoom::~basicRoom()
     clearMessage=nullptr;
 }
 
-void basicRoom::exploreRoom(Player* player, int& currentProgression)
+void basic_room::exploreRoom(Player* player, int& currentProgression)
 {
     std::cout << exploreMessage;
 }
 
-void basicRoom::clearRoom(Player* player, int& currentProgression)
+void basic_room::clearRoom(Player* player, int& currentProgression)
 {
     std::cout << clearMessage;
 }

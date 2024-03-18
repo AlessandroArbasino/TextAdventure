@@ -3,11 +3,11 @@
 #include "../../../baseLoot/lootBase.h"
 #include "../../../Core/helpers.h"
 
-lootRoom::lootRoom(lootBase roomLoot,std::string* exploreMessage,std::string* clearMessage) : basicRoom(exploreMessage,clearMessage),roomLoot( new lootBase(roomLoot))
+lootRoom::lootRoom(lootBase roomLoot,std::string* exploreMessage,std::string* clearMessage) : basic_room(exploreMessage,clearMessage),roomLoot( new lootBase(roomLoot))
 {
 }
 //TODO delete null ptr
-lootRoom::lootRoom(const lootRoom& other) : basicRoom(nullptr,nullptr),roomLoot(other.roomLoot)
+lootRoom::lootRoom(const lootRoom& other) : basic_room(nullptr,nullptr),roomLoot(other.roomLoot)
 {
 }
 
@@ -21,7 +21,7 @@ void lootRoom::exploreRoom(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basicRoom::exploreRoom(player, currentProgression);
+    basic_room::exploreRoom(player, currentProgression);
 
     if(Helpers::PrintChoice())
     {
@@ -33,6 +33,6 @@ void lootRoom::clearRoom(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basicRoom::clearRoom(player, currentProgression);
+    basic_room::clearRoom(player, currentProgression);
     clearDelegate(player,++currentProgression);
 }
