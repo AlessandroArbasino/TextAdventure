@@ -41,6 +41,9 @@ adventure::adventure()
     
     adventureSteps= new explorable*[] {firstDungeon,secondDungeon};
     numSteps=2;
+
+    beginAdventureString = new std::string("The king needs your help you need to go to the cave");
+    endAdventureString = new std::string("The king really appreciate and gives you a medal");
 }
 
 adventure::adventure(const adventure& other)
@@ -49,6 +52,12 @@ adventure::adventure(const adventure& other)
 
 adventure::~adventure()
 {
+    delete beginAdventureString;
+    beginAdventureString= nullptr;
+
+    delete endAdventureString;
+    endAdventureString=nullptr;
+    
     for(int i =0;i<numSteps;i++)
     {
         delete adventureSteps[i];
@@ -60,7 +69,8 @@ adventure::~adventure()
 void adventure::explore(Player* currentPlayer,int& dungeonProgressionIndex)
 {
     if(!currentPlayer) return;
-    
+
+    std::cout << *beginAdventureString << "\n";
     if(Helpers::PrintChoice())
     {
         if(dungeonProgressionIndex>=numSteps)
@@ -83,7 +93,7 @@ void adventure::clear(Player* currentPlayer,int& dungeonProgressionIndex)
 {
     if(!currentPlayer) return;
     
-    std::cout<< "congratulation player " << currentPlayer <<" you cleared this adventure";
+    std::cout << *endAdventureString << "\n";
 
     //why ??
     (this->*clearDelegate)(currentPlayer,dungeonProgressionIndex);

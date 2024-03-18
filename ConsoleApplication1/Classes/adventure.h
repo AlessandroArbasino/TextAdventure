@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <string>
+
 #include "Core/clearable.h"
 
 class Player;
@@ -8,6 +10,8 @@ class adventure : public clearable
 {
     explorable** adventureSteps;
     int numSteps;
+    std::string* beginAdventureString;
+    std::string* endAdventureString;
 public:
     
     adventure();
