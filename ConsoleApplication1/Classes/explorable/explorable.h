@@ -1,9 +1,10 @@
 ﻿#pragma once
 #include "../player.h"
+#include "../Core/clearable.h"
 
 class basic_room;
 
-class explorable
+class explorable : public clearable
 {
     int roomArraySize;
     basic_room** explorableRooms;
@@ -12,19 +13,18 @@ class explorable
     std::string* clearMessage;
     
 public:
-    void (*clearDelegate)(Player*,int&);
     
     explorable(basic_room** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage);
 
     explorable(const explorable& other);
 
-    virtual ~explorable();
+    ~explorable() override;
 
     basic_room** getExplorableRooms() const {return explorableRooms;}
 
     int getRoomArraySize() const {return roomArraySize;}
 
-    void exploreRoom(Player* player,int& exploreRoomIndex);
+    void explore(Player* player,int& exploreRoomIndex) override;
 
-    void clearExplore(Player* currentPlayer,int& exploreRoomIndex);
+    void clear(Player* currentPlayer,int& exploreRoomIndex) override;
 };

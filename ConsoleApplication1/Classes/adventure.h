@@ -1,24 +1,24 @@
 ﻿#pragma once
+#include "Core/clearable.h"
 
 class Player;
 class explorable;
 
-class adventure
+class adventure : public clearable
 {
     explorable** adventureSteps;
     int numSteps;
-    void (*clearDelegate)(Player*);
 public:
     
     adventure();
 
     adventure(const adventure& other);
-    
-    virtual ~adventure();
 
-    void processAdventure(Player* currentPlayer,int& dungeonProgressionIndex);
+    ~adventure() override;
 
-    void clearAdventure(Player* currentPlayer);
+    void explore(Player* currentPlayer,int& dungeonProgressionIndex) override;
+
+    void clear(Player* currentPlayer,int& dungeonProgressionIndex) override;
 
     explorable** getExplorableRooms() const {return adventureSteps;}
 

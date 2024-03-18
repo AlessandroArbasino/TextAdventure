@@ -18,25 +18,25 @@ entryRoom::~entryRoom()
 {
 }
 
-void entryRoom::exploreRoom(Player* player,int& currentProgression)
+void entryRoom::explore(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basic_room::exploreRoom(player, currentProgression);
+    basic_room::explore(player, currentProgression);
 
     if(Helpers::PrintChoice())
     {
-        clearRoom(player,currentProgression);
+        clear(player,currentProgression);
     }
 }
 
-void entryRoom::clearRoom(Player* player,int& currentProgression)
+void entryRoom::clear(Player* player,int& currentProgression)
 {
     if(!player) return;
     
     //calling base method correct??
-    basic_room::clearRoom(player, currentProgression);
-    clearDelegate(player,++currentProgression);
+    basic_room::clear(player, currentProgression);
+    (this->*clearDelegate)(player,++currentProgression);
 }
 
 

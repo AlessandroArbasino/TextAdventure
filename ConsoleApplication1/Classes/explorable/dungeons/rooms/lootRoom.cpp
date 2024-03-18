@@ -17,22 +17,22 @@ lootRoom::~lootRoom()
     roomLoot = nullptr;
 }
 
-void lootRoom::exploreRoom(Player* player,int& currentProgression)
+void lootRoom::explore(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basic_room::exploreRoom(player, currentProgression);
+    basic_room::explore(player, currentProgression);
 
     if(Helpers::PrintChoice())
     {
-        clearRoom(player,currentProgression);
+        clear(player,currentProgression);
     }
 }
 
-void lootRoom::clearRoom(Player* player,int& currentProgression)
+void lootRoom::clear(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basic_room::clearRoom(player, currentProgression);
-    clearDelegate(player,++currentProgression);
+    basic_room::clear(player, currentProgression);
+    (this->*clearDelegate)(player,++currentProgression);
 }

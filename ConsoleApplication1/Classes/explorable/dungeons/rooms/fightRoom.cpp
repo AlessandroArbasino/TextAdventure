@@ -15,22 +15,22 @@ fightRoom::~fightRoom()
 
 
 
-void fightRoom::exploreRoom(Player* player,int& currentProgression)
+void fightRoom::explore(Player* player,int& currentProgression)
 {
     if(!player) return;
     
-    basic_room::exploreRoom(player, currentProgression);
+    basic_room::explore(player, currentProgression);
 
     if(Helpers::PrintChoice())
     {
-        clearRoom(player,currentProgression);
+        clear(player,currentProgression);
     }
 }
 
-void fightRoom::clearRoom(Player* player,int& currentProgression)
+void fightRoom::clear(Player* player,int& currentProgression)
 {
     if(!player) return;
         
-    basic_room::clearRoom(player, currentProgression);
-    clearDelegate(player,++currentProgression);
+    basic_room::clear(player, currentProgression);
+    (this->*clearDelegate)(player,++currentProgression);
 }

@@ -1,24 +1,25 @@
 ﻿#pragma once
 #include <string>
 
+#include "../../../Core/clearable.h"
+
 class Player;
 
-class basic_room
+class basic_room : public clearable
 {
 
     std::string* exploreMessage;
     std::string* clearMessage;
 public:
-    void (*clearDelegate)(Player*,int&);
 
     basic_room(std::string* exploreMessage,std::string* clearMessage);
 
     basic_room(const basic_room& other);
 
-    virtual ~basic_room();
+    ~basic_room() override;
 
     //must implement this method
-    virtual void exploreRoom(Player* player,int& currentProgression);
+    void explore(Player* player,int& currentProgression) override;
 
-    virtual void clearRoom(Player* player,int& currentProgression);
+    void clear(Player* player,int& currentProgression) override;
 };

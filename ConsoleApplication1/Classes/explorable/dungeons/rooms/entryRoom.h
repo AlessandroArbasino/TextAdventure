@@ -11,9 +11,9 @@ public:
 
     ~entryRoom() override;
     
-    void exploreRoom(Player* player,int& currentProgression) override;
+    void explore(Player* player,int& currentProgression) override;
     
-    void clearRoom(Player* player,int& currentProgression) override;
+    void clear(Player* player,int& currentProgression) override;
 };
 
 

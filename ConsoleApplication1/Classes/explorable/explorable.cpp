@@ -24,7 +24,7 @@ explorable::~explorable()
     }
 }
 
-void explorable::exploreRoom(Player* player,int& exploreRoomIndex)
+void explorable::explore(Player* player,int& exploreRoomIndex)
 {
     if(!player) return;
     
@@ -33,17 +33,17 @@ void explorable::exploreRoom(Player* player,int& exploreRoomIndex)
     {
         if(exploreRoomIndex>=roomArraySize)
         {
-            clearExplore(player,exploreRoomIndex);
+            clear(player,exploreRoomIndex);
             return;
         }
 
         //chiedere
-        explorableRooms[exploreRoomIndex]->clearDelegate= this->exploreRoom;
-        explorableRooms[exploreRoomIndex]->exploreRoom(player,exploreRoomIndex);
+        explorableRooms[exploreRoomIndex]->clearDelegate= &clearable::explore;
+        explorableRooms[exploreRoomIndex]->explore(player,exploreRoomIndex);
     }
 }
 
-void explorable::clearExplore(Player* currentPlayer,int& exploreRoomIndex)
+void explorable::clear(Player* currentPlayer,int& exploreRoomIndex)
 {
     if(!currentPlayer) return;
     
@@ -51,6 +51,6 @@ void explorable::clearExplore(Player* currentPlayer,int& exploreRoomIndex)
 
     //avoinding counting for cleared rooms
     exploreRoomIndex= exploreRoomIndex+1-roomArraySize;
-    clearDelegate(currentPlayer,exploreRoomIndex);
+    (this->*clearDelegate)(currentPlayer,exploreRoomIndex);
     
 }

@@ -16,7 +16,7 @@ public:
     //better to return pointer??
     lootBase* getLoot() const {return roomLoot;}
     
-    void exploreRoom(Player* player,int& currentProgression) override;
+    void explore(Player* player,int& currentProgression) override;
     
-    void clearRoom(Player* player,int& currentProgression) override;
+    void clear(Player* player,int& currentProgression) override;
 };

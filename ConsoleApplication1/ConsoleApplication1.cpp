@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     try
     {
         int dungeonProgress=0;
-        currentAdventure->processAdventure(player,dungeonProgress);
+        currentAdventure->explore(player,dungeonProgress);
     }
     catch (const PlayerDeathException&)
     {

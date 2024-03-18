@@ -57,7 +57,7 @@ adventure::~adventure()
     
 }
 
-void adventure::processAdventure(Player* currentPlayer,int& dungeonProgressionIndex)
+void adventure::explore(Player* currentPlayer,int& dungeonProgressionIndex)
 {
     if(!currentPlayer) return;
     
@@ -65,20 +65,22 @@ void adventure::processAdventure(Player* currentPlayer,int& dungeonProgressionIn
     {
         if(dungeonProgressionIndex>=numSteps)
         {
-            clearAdventure(currentPlayer);
+            clear(currentPlayer,dungeonProgressionIndex);
             return;
         }
 
         //chiedere
-        adventureSteps[dungeonProgressionIndex]->clearDelegate= this->processAdventure;
-        adventureSteps[dungeonProgressionIndex]->exploreRoom(currentPlayer,dungeonProgressionIndex);
+        adventureSteps[dungeonProgressionIndex]->clearDelegate= &clearable::explore;
+        adventureSteps[dungeonProgressionIndex]->explore(currentPlayer,dungeonProgressionIndex);
     }
 }
 
-void adventure::clearAdventure(Player* currentPlayer)
+void adventure::clear(Player* currentPlayer,int& dungeonProgressionIndex)
 {
     if(!currentPlayer) return;
     
     std::cout<< "congratulation player " << currentPlayer <<" you cleared this adventure";
-    clearDelegate(currentPlayer);
+
+    //why ??
+    (this->*clearDelegate)(currentPlayer,dungeonProgressionIndex);
 }
