@@ -1,11 +1,12 @@
 ﻿#include "dungeonCave.h"
 
 
-dungeonCave::dungeonCave(basicRoom** roomArray, int roomArraySize) : explorable(roomArray,roomArraySize)
+dungeonCave::dungeonCave(basicRoom** roomArray, int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : explorable(roomArray,roomArraySize,exploreMessage,clearMessage)
 {
 }
 
-dungeonCave::dungeonCave(const dungeonCave& other) : explorable(other.getExplorableRooms(), other.getRoomArraySize())
+//TODO delete null ptr do methods get and set
+dungeonCave::dungeonCave(const dungeonCave& other) : explorable(other.getExplorableRooms(), other.getRoomArraySize(),nullptr,nullptr)
 {
 }
 

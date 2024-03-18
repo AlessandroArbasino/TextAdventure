@@ -1,12 +1,13 @@
 ﻿#include "lootRoom.h"
 
 #include "../../../baseLoot/lootBase.h"
+#include "../../../Core/helpers.h"
 
-lootRoom::lootRoom(lootBase roomLoot) : roomLoot( new lootBase(roomLoot))
+lootRoom::lootRoom(lootBase roomLoot,std::string* exploreMessage,std::string* clearMessage) : basicRoom(exploreMessage,clearMessage),roomLoot( new lootBase(roomLoot))
 {
 }
-
-lootRoom::lootRoom(const lootRoom& other) : roomLoot(other.roomLoot)
+//TODO delete null ptr
+lootRoom::lootRoom(const lootRoom& other) : basicRoom(nullptr,nullptr),roomLoot(other.roomLoot)
 {
 }
 
@@ -18,10 +19,20 @@ lootRoom::~lootRoom()
 
 void lootRoom::exploreRoom(Player* player,int& currentProgression)
 {
-    clearRoom(player,currentProgression);
+    if(!player) return;
+    
+    basicRoom::exploreRoom(player, currentProgression);
+
+    if(Helpers::PrintChoice())
+    {
+        clearRoom(player,currentProgression);
+    }
 }
 
 void lootRoom::clearRoom(Player* player,int& currentProgression)
 {
+    if(!player) return;
+    
+    basicRoom::clearRoom(player, currentProgression);
     clearDelegate(player,++currentProgression);
 }

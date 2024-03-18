@@ -16,13 +16,19 @@ int main(int argc, char* argv[])
         player= Helpers::CreatePlayer();
     }
 
-    //delegate for next adventure path
-    void (*nextActionDelegate)(Player*) = nullptr;
-    
-    adventure currentAdventure = adventure();
+    //call this in cunstructor ??
+    adventure* currentAdventure = new adventure();
     int dungeonProgress=0;
-    currentAdventure.processAdventure(player,dungeonProgress);
+    currentAdventure->processAdventure(player,dungeonProgress);
     
+    delete currentAdventure;
+    currentAdventure=nullptr;
+    if(player)
+    {
+        Helpers::PrintWinDeletePlayerRef(player);
+    }
+
+    //just in case of some bug if i cannot win or lose
     delete player;
     player=nullptr;
     

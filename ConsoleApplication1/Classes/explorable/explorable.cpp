@@ -6,7 +6,8 @@
 #include "dungeons/rooms/basicRoom.h"
 #include "../Core/helpers.h"
 
-explorable::explorable(basicRoom** explorableRooms,int roomArraySize) : explorableRooms{explorableRooms},roomArraySize(roomArraySize)
+explorable::explorable(basicRoom** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage) : roomArraySize(roomArraySize),
+    explorableRooms{explorableRooms},exploreMessage(exploreMessage),clearMessage(clearMessage)
 {
 }
 
@@ -25,6 +26,9 @@ explorable::~explorable()
 
 void explorable::exploreRoom(Player* player,int& exploreRoomIndex)
 {
+    if(!player) return;
+    
+    std::cout<< exploreMessage;
     if(Helpers::PrintChoice())
     {
         if(exploreRoomIndex>=roomArraySize)
@@ -41,11 +45,12 @@ void explorable::exploreRoom(Player* player,int& exploreRoomIndex)
 
 void explorable::clearExplore(Player* currentPlayer,int& exploreRoomIndex)
 {
-    std::cout<< "congratulation player " << currentPlayer <<" you cleared this dungeon now you are ready to procede with your adventure ";
+    if(!currentPlayer) return;
+    
+    std::cout<< clearMessage;
 
     //avoinding counting for cleared rooms
     exploreRoomIndex= exploreRoomIndex+1-roomArraySize;
     clearDelegate(currentPlayer,exploreRoomIndex);
-    delete this;
-    //destroy the super class not just this may be into deconstructor
+    
 }

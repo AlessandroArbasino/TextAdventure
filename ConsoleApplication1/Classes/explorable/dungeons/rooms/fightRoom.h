@@ -8,7 +8,7 @@ class fightRoom : public  basicRoom
     enemyBase* roomEnemy;
 public:
 
-    fightRoom(enemyBase* roomEnemy);
+    fightRoom(enemyBase* roomEnemy,std::string* exploreMessage,std::string* clearMessage);
 
    // fightRoom(const fightRoom& other);
 

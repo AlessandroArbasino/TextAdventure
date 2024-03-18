@@ -7,11 +7,14 @@ class explorable
 {
     int roomArraySize;
     basicRoom** explorableRooms;
+
+    std::string* exploreMessage;
+    std::string* clearMessage;
     
 public:
     void (*clearDelegate)(Player*,int&);
     
-    explorable(basicRoom** explorableRooms,int roomArraySize);
+    explorable(basicRoom** explorableRooms,int roomArraySize,std::string* exploreMessage,std::string* clearMessage);
 
     explorable(const explorable& other);
 

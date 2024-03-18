@@ -5,7 +5,7 @@ class entryRoom : public basicRoom
 {
 
 public:
-    entryRoom();
+    entryRoom(std::string* exploreMessage,std::string* clearMessage);
 
     entryRoom(const entryRoom& other);
 

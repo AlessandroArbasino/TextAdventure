@@ -7,7 +7,7 @@ class lootRoom : public basicRoom
 {
     lootBase* roomLoot;
 public:
-     lootRoom(lootBase roomLoot);
+     lootRoom(lootBase roomLoot,std::string* exploreMessage,std::string* clearMessage);
 
     lootRoom(const lootRoom& other);
 
