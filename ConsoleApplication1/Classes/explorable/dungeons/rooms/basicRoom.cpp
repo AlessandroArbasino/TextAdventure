@@ -24,12 +24,12 @@ basic_room::~basic_room()
 
 void basic_room::explore(Player* player, int& currentProgression)
 {
-    std::cout << exploreMessage;
+    std::cout << *exploreMessage << " \n";
 }
 
 void basic_room::clear(Player* player, int& currentProgression)
 {
-    std::cout << clearMessage;
+    std::cout << *clearMessage<< " \n";
 }
 
 

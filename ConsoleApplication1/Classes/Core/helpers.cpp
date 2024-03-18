@@ -11,7 +11,7 @@ Player* Helpers::CreatePlayer()
     std::string playerName;
     std::cin >> playerName;
 
-    std::cout<< "Ok welcome player "<< playerName;
+    std::cout<< "Ok welcome player "<< playerName << " \n";
     return new Player(playerName,100);
 }
 

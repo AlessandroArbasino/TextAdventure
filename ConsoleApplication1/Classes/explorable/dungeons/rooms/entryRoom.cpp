@@ -28,6 +28,10 @@ void entryRoom::explore(Player* player,int& currentProgression)
     {
         clear(player,currentProgression);
     }
+    else
+    {
+        Helpers::PrintLoseDeletePlayerRef(player);
+    }
 }
 
 void entryRoom::clear(Player* player,int& currentProgression)

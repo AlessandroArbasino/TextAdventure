@@ -25,6 +25,10 @@ void fightRoom::explore(Player* player,int& currentProgression)
     {
         clear(player,currentProgression);
     }
+    else
+    {
+        Helpers::PrintLoseDeletePlayerRef(player);
+    }
 }
 
 void fightRoom::clear(Player* player,int& currentProgression)

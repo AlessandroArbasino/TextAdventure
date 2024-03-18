@@ -28,7 +28,7 @@ void explorable::explore(Player* player,int& exploreRoomIndex)
 {
     if(!player) return;
     
-    std::cout<< exploreMessage;
+    std::cout<< *exploreMessage;
     if(Helpers::PrintChoice())
     {
         if(exploreRoomIndex>=roomArraySize)
@@ -41,13 +41,17 @@ void explorable::explore(Player* player,int& exploreRoomIndex)
         explorableRooms[exploreRoomIndex]->clearDelegate= &clearable::explore;
         explorableRooms[exploreRoomIndex]->explore(player,exploreRoomIndex);
     }
+    else
+    {
+        Helpers::PrintLoseDeletePlayerRef(player);
+    }
 }
 
 void explorable::clear(Player* currentPlayer,int& exploreRoomIndex)
 {
     if(!currentPlayer) return;
     
-    std::cout<< clearMessage;
+    std::cout<< *clearMessage;
 
     //avoinding counting for cleared rooms
     exploreRoomIndex= exploreRoomIndex+1-roomArraySize;

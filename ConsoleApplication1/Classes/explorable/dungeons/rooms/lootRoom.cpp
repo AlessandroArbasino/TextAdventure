@@ -27,6 +27,10 @@ void lootRoom::explore(Player* player,int& currentProgression)
     {
         clear(player,currentProgression);
     }
+    else
+    {
+        Helpers::PrintLoseDeletePlayerRef(player);
+    }
 }
 
 void lootRoom::clear(Player* player,int& currentProgression)

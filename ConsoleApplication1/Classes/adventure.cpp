@@ -73,6 +73,10 @@ void adventure::explore(Player* currentPlayer,int& dungeonProgressionIndex)
         adventureSteps[dungeonProgressionIndex]->clearDelegate= &clearable::explore;
         adventureSteps[dungeonProgressionIndex]->explore(currentPlayer,dungeonProgressionIndex);
     }
+    else
+    {
+        Helpers::PrintLoseDeletePlayerRef(currentPlayer);
+    }
 }
 
 void adventure::clear(Player* currentPlayer,int& dungeonProgressionIndex)
