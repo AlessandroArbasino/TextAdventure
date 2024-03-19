@@ -1,6 +1,7 @@
 ﻿#include "dragon.h"
 
-dragon::dragon(float* maxLife) : enemyBase(maxLife)
+dragon::dragon(float* maxLife,float* basicAttack, float* magicAttack, BaseWeapon* baseWeapon,int* initiative) :
+    enemyBase(maxLife,basicAttack,magicAttack,baseWeapon,initiative)
 {
 }
 

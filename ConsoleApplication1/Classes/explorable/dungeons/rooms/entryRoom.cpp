@@ -40,7 +40,9 @@ void entryRoom::clear(Player* player,int& currentProgression)
     
     //calling base method correct??
     basic_room::clear(player, currentProgression);
-    (this->*clearDelegate)(player,++currentProgression);
+    std::cout << "entry room" << " \n";
+    currentProgression++;
+    (this->*clearDelegate)(player,currentProgression);
 }
 
 

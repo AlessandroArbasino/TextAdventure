@@ -4,7 +4,7 @@
 class goblin : public enemyBase
 {
 public:
-    goblin(float* maxLife);
+    goblin(float* maxLife,float* basicAttack, float* magicAttack, BaseWeapon* baseWeapon,int* initiative);
 
     goblin(const goblin& other);
 

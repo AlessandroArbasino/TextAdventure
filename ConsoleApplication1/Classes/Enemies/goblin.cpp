@@ -1,6 +1,6 @@
 ﻿#include "goblin.h"
 
-goblin::goblin(float* maxLife) : enemyBase(maxLife)
+goblin::goblin(float* maxLife,float* basicAttack, float* magicAttack, BaseWeapon* baseWeapon,int* initiative) : enemyBase(maxLife,basicAttack,magicAttack,baseWeapon,initiative)
 {
 }
 

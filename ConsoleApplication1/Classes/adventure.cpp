@@ -18,9 +18,9 @@ adventure::adventure(): clearable(new std::string("The king needs your help you 
     {
         new entryRoom(new std::string("You just entered  the cave"),
                       new std::string("Quite silent room nothing interesting")),
-        new fightRoom(new goblin(new float(10)), new std::string("Someone lives here keep your eyes on"),
+        new fightRoom(new goblin(new float(10),new float(10),new float(0),nullptr,new int(30)), new std::string("Someone lives here keep your eyes on"),
                       new std::string("Ok i defeated that terrible goblin, lets move on")),
-        new fightRoom(new dragon(new float(100)), new std::string("There is something big here... its a dragon"),
+        new fightRoom(new dragon(new float(100),new float(30),new float(40),nullptr,new int(20)), new std::string("There is something big here... its a dragon"),
                       new std::string("It wasnt so difficult..."))
     };
 
@@ -34,9 +34,9 @@ adventure::adventure(): clearable(new std::string("The king needs your help you 
     {
         new entryRoom(new std::string("Oh.... another cave hoping for something easier"),
                       new std::string("Another silent room nothing interesting")),
-        new fightRoom(new goblin(new float(10)), new std::string("Another goblin maybe"),
+        new fightRoom(new goblin(new float(10),new float(10),new float(0),nullptr,new int(30)), new std::string("Another goblin maybe"),
                       new std::string("it was definitely another goblin")),
-        new fightRoom(new dragon(new float(100)), new std::string("Its a dragon ... again"),
+        new fightRoom(new dragon(new float(100),new float(30),new float(40),nullptr,new int(20)), new std::string("Its a dragon ... again"),
                       new std::string("Im a dragon slayer"))
     };
     explorable* secondDungeon = new dungeonCave(
